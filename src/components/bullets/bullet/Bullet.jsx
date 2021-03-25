@@ -1,5 +1,6 @@
 import React from "react";
 import {BulletWrapper} from "./style";
+import PropTypes from 'prop-types';
 
 const Bullet = ({content}) => {
 
@@ -15,5 +16,9 @@ const Bullet = ({content}) => {
         </BulletWrapper>
     );
 };
+
+Bullet.propTypes = {
+    content: PropTypes.object.isRequired,
+}
 
 export default Bullet;
