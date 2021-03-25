@@ -28,8 +28,8 @@ const Form = () => {
     }
 
     const onEmailChange = (e) => {
-        setEmail(e.target.value);
-        dispatch(actionsCreator.setValidationEmail(e.target.value));
+        setEmail(e.target.value.trim());
+        dispatch(actionsCreator.setValidationEmail(e.target.value.trim()));
     }
 
     const onPhoneChange = (e) => {
@@ -77,7 +77,7 @@ const Form = () => {
                 <FormContainer.PhoneContainer validation={validation.phone.validResult}>
                     <PhoneContainer.Image icon={'./svg/phone.svg'} />
                     <PhoneContainer.Input type="text" readOnly value={`+${prefix}`} />
-                    <PhoneContainer.Input value={phone} placeholder="Phone" type="text" onChange={onPhoneChange} />
+                    <PhoneContainer.Input value={phone} placeholder="Phone" type="number" onChange={onPhoneChange} />
                     <PhoneContainer.Msg>{validation.phone.message}</PhoneContainer.Msg>
                 </FormContainer.PhoneContainer>
                 <FormContainer.Button onClick={onSend}>Try a 14-day trial period</FormContainer.Button>

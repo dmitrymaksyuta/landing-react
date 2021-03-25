@@ -156,6 +156,12 @@ PhoneContainer.Input = styled.input`
   font-weight: 400;
   color: #999999;
   outline:none;
+  -moz-appearance:textfield;
+  
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   
   @media (max-width: 468px) {
     height: 38px;

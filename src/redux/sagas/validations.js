@@ -12,7 +12,7 @@ export function* addValidationName(action) {
     if (!action && !action.payload) return;
 
     try {
-        const validResult = action.payload.length > 2;
+        const validResult = action.payload.trim().length > 2;
         const message = validResult ? '' : 'Minimum 3 characters';
         yield put({type: actions.SET_VALIDATION_NAME, payload: {validResult, message}});
     } catch (error) {
@@ -24,7 +24,7 @@ export function* addValidationLastName(action) {
     if (!action && !action.payload) return;
 
     try {
-        const validResult = action.payload.length > 2;
+        const validResult = action.payload.trim().length > 2;
         const message = validResult ? '' : 'Minimum 3 characters';
         yield put({type: actions.SET_VALIDATION_LAST_NAME, payload: {validResult, message}});
     } catch (error) {
@@ -49,7 +49,7 @@ export function* addValidationPhone(action) {
     if (!action && !action.payload) return;
 
     try {
-        const validResult = /^\d{7,20}$/.test(action.payload);
+        const validResult = /^\d{7,20}$/.test(action.payload.trim());
         const message = validResult ? '' : 'Minimum 7, maximum 20 digits';
         yield put({type: actions.SET_VALIDATION_PHONE, payload: {validResult, message}});
     } catch (error) {
